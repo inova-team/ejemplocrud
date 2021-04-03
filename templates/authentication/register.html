@@ -1,0 +1,31 @@
+
+{% extends 'authentication/auth_base.html' %}
+
+{% block body %}
+    <div class="col-auto">
+        <h5> Register </h5>
+    </div>
+    <div class="col-auto">
+        <p class="fs--1 text-600 mb-0">or <a href="{% url 'loginUser' %}"> Inicia sesión</a></p>
+    </div>
+    </div>
+    
+    <form action="{% url 'registerUser' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group" >
+            <input name="name" class="form-control" type="text" placeholder="Nombre"/>
+        </div>
+        <div class="form-group">
+            <input  name="email" class="form-control" type="email" placeholder="Email address"/>
+        </div>
+        <div class="form-group">
+            <input name="password" class="form-control" type="password" placeholder="Password"/>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block mt-3" type="submit" >Registrar</button>
+        </div>
+    </form>
+
+
+{% endblock %}
+

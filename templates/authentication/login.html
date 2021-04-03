@@ -1,0 +1,45 @@
+
+{% extends 'authentication/auth_base.html' %}
+
+{% block extrastyle %}
+
+{% endblock %}
+
+
+{% block body %}
+    <div class="col-auto">
+        <h5> Inicio de Sesión</h5>
+    </div>
+    <div class="col-auto">
+        <p class="fs--1 text-600 mb-0">or <a href="{% url 'registerUser' %}">Create an account</a></p>
+    </div>
+    </div>
+
+    <form action="{% url 'loginUser' %}" method="post">
+    {% csrf_token %}
+        <div  class="form-group">
+            <input name="email" class="form-control" type="email" placeholder="Email address"/>
+        </div>
+        <div  class="form-group">
+            <input name="password" class="form-control" type="password" placeholder="Password"/>
+        </div>
+        <div class="row justify-content-between align-items-center">
+            <div class="col-auto"><a class="fs--1" href="../../authentication/basic/forgot-password.html">Forgot
+                Password?</a></div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block mt-3" type="submit">Iniciar</button>
+        </div>
+    </form>
+    {% if error %}
+
+    <div   class="card">
+        <h1>{{ error }}</h1>
+    </div>
+    {% endif %}
+
+{% endblock %}
+
+{% block extrajs %}
+
+{% endblock %}
